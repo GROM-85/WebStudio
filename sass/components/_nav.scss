@@ -1,0 +1,52 @@
+.site-nav{   
+    display: none; 
+
+    @media screen and (min-width:768px) {
+            display: block;
+            
+        }
+        
+            
+    &__list{       
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+    }   
+
+    &__link{        
+
+        @media screen and (min-width:768px){
+            
+            position: relative;
+            padding: 22px 0;
+            @include font(500, 14px, $primary-text-color, 1.17, 0.02em);
+            @include transition(color);
+        }
+        
+        &--current{
+            color:$accent-color;
+        }
+        @media screen and (min-width:768px){
+            &--current::after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 4px;
+                left: 0;
+                bottom: 0;
+                background: $accent-color;
+                border-radius: 2px;
+            }
+        }
+        
+
+        &:hover,&:focus{
+            color: $accent-color;            
+            text-decoration-thickness: .125em;
+            text-underline-offset: 1.5px;
+        }
+    
+    }
+}
